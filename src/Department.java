@@ -5,43 +5,23 @@ import java.util.Scanner;
 
 public class Department {
     private static ArrayList<Department> DeptArr = new ArrayList<>();
-    private int DepartmentID;
-    private String DepartmentName;
+    private int Department_ID;
+    private String Department_Name;
     private static int ID = 1;
 
 
     public Department(String Name) {
-        this.DepartmentName = Name;
-        DepartmentID = ID;
+        this.Department_Name = Name;
+        Department_ID = ID;
         ID++;
     }
 
-    public int getDepartmentID() {return DepartmentID;}
+    public int getDepartmentID() {return Department_ID;}
 
-    public String getDepartmentName() {return DepartmentName;}
-
-    public static void readData() {
-        File file = new File("src/DepartmentNames.txt");
-        try {
-            Scanner fileScan = new Scanner(file);
-
-            String line = fileScan.nextLine();
-            String[] sep = line.split(",");
-            for (int i = 0; i < sep.length; i++){
-                DeptArr.add(i, new Department(sep[i]));
-            }
-
-            for (Department element : DeptArr) {
-                System.out.println(element);
-            }
-
-        } catch (FileNotFoundException e) {
-            System.out.println("Error reading file: " + e.getMessage());
-        }
-    }
+    public String getDepartmentName() {return Department_Name;}
 
     @Override
     public String toString(){
-        return "INSERT INTO Departments (DepartmentID , DepartmentName) VALUES (" + DepartmentID + ", '" + DepartmentName + "')";
+        return "INSERT INTO Departments (Department_ID , Department_Name) VALUES (" + Department_ID + ", '" + Department_Name + "')";
     }
 }
