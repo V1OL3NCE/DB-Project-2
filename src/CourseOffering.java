@@ -2,28 +2,28 @@ public class CourseOffering {
     private int offeringID;
     private static int ID = 1;
     private int period;
-    private int InstructorID;
-    private int CourseID;
-    private int RoomID;
+    private int instructorID;
+    private int courseID;
+    private int roomID;
 
 
-    public CourseOffering(Instructor instructor, Course course, Room room, int period){
+    public CourseOffering(Instructor i, Course c, Room r, int period){
         offeringID = ID;
         ID++;
-        InstructorID = instructor.getInstructorId();
-        CourseID = course.getCourse_Id();
-        RoomID = room.getRoomID();
+        instructorID = i.getInstructorId();
+        courseID = c.getCourse_Id();
+        roomID = r.getRoomID();
         this.period = period;
     }
 
 
     public int getCourseID() {
-        return CourseID;
+        return courseID;
     }
 
 
     @Override
     public String toString(){
-        return "INSERT INTO Course_Offering (Offering_ID, Period, Instructor_ID, Course_ID, Room_ID) VALUES (" + offeringID + ", " + period + ", " + InstructorID + ", " + CourseID + ", " + RoomID + ");";
+        return "INSERT INTO Course_Offering (Offering_ID, Period, Instructor_ID, Course_ID, Room_ID) VALUES (" + offeringID + ", " + period + ", " + instructorID + ", " + courseID + ", " + roomID + ");";
     }
 }

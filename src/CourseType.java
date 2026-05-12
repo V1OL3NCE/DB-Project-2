@@ -1,30 +1,27 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class CourseType {
-    private static ArrayList<CourseType> CourseTypeArr = new ArrayList<>();
-    private static int Course_Type_ID = 0;
-    private String Course_Type_Name;
-    private static int ID = 1;
+    private static ArrayList<CourseType> courseTypeArr = new ArrayList<>();
+    private int courseTypeID;
+    private String courseTypeName;
+    private static int ID = 0;
 
-    public CourseType(String Course_Type_Name) {
-        Course_Type_ID = ID;
-        this.Course_Type_Name = Course_Type_Name;
+    public CourseType(String courseTypeName) {
+        courseTypeID = ID;
+        this.courseTypeName = courseTypeName;
         ID++;
     }
 
-    public int getCourse_Type_ID() {
-        return Course_Type_ID ;
+    public int getCourseTypeID() {
+        return courseTypeID ;
     }
 
-    public String getCourse_Type_Name() {
-        return Course_Type_Name;
+    public String getCourseTypeName() {
+        return courseTypeName;
     }
 
     @Override
     public String toString(){
-        return "INSERT INTO Course_Type (Course_Type_ID , Course_Type_Name) VALUES (" + Course_Type_ID  + ", '" + Course_Type_Name+ "')";
+        return "INSERT INTO Course_Type (Course_Type_ID , Course_Type_Name) VALUES (" + courseTypeID  + ", '" + courseTypeName+ "')";
     }
 }

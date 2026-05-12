@@ -1,11 +1,11 @@
 public class Student {
-    private String StudentName;
-    private int StudentID;
+    private String studentName;
+    private int studentID;
     private static int ID = 1;
 
     public Student (String Name){
-        this.StudentName = Name;
-        StudentID = ID;
+        this.studentName = Name;
+        studentID = ID;
         ID++;
     }
 
@@ -18,14 +18,14 @@ public class Student {
     }
 
     public String getName(){
-        return StudentName;
+        return studentName;
     }
-    public int getStudentId(){
-        return StudentID;
+    public int getstudentID(){
+        return studentID;
     }
 
     @Override
     public String toString(){
-        return "INSERT INTO STUDENT (StudentID , Name) VALUES (" + StudentID + ", '" + StudentName + "')";
+        return "INSERT INTO STUDENT (studentID , Name) VALUES (" + studentID + ", '" + studentName + "')";
     }
 }
