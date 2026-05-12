@@ -7,12 +7,12 @@ public class CourseOffering {
     private int RoomID;
 
 
-    public CourseOffering(Instructor i, Course c, Room r, int period){
+    public CourseOffering(Instructor instructor, Course course, Room room, int period){
         offeringID = ID;
         ID++;
-        InstructorID = i.getInstructorId();
-        CourseID = c.getCourse_Id();
-        RoomID = r.getRoomID();
+        InstructorID = instructor.getInstructorId();
+        CourseID = course.getCourse_Id();
+        RoomID = room.getRoomID();
         this.period = period;
     }
 

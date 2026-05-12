@@ -93,5 +93,8 @@ public class Main {
             System.out.println("Error reading file: " + e.getMessage());
         }
         //-end
+        //Courses -start
+        String[] types = {"Major", "Minor"};
+
     }
 }

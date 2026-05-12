@@ -5,10 +5,11 @@ public class Assignment {
     private int Offering_ID;
     private int Assignment_Type;
 
-    public Assignment(String Name, Instructor instructorname) {
+    public Assignment(String Name, AssignmentType assignmentType) {
         Assignment_Name = Name;
         Assignment_ID = ID;
         ID++;
+        Assignment_Type = assignmentType.getAssignment_Type_ID();
     }
 
     @Override
