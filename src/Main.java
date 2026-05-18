@@ -186,15 +186,15 @@ public class Main {
             }
         }
         for (int i = 0; i < 10; i++) {
-            ArrayList<Instructor> instructorTemp = new ArrayList<>(instructors);
-            ArrayList<Room> roomTemp = new ArrayList<>(roomObjects);
+            ArrayList<Instructor> instructorTemp = new ArrayList<>(instructors);//ArrayList of all the instructors (modified later to be the remaining instructors for this period)
+            ArrayList<Room> roomTemp = new ArrayList<>(roomObjects);//ArrayList of all rooms (modified later to be the remaining available rooms for this period)
             for (int j = 0; j < coursesSortByPeriod.get(i).size(); j++) {
                 int instructorTempInt = (int) ((Math.random() * instructorTemp.size())); // gets the ID of a random instructor
                 int roomTempInt = (int) ((Math.random() * roomTemp.size())); // gets the ID of a random room
                 CourseOffering tempCourseOffering = new CourseOffering(instructorTemp.get(instructorTempInt), coursesSortByPeriod.get(i).get(j), roomTemp.get(roomTempInt), i + 1);
-                courseOfferings.add(tempCourseOffering);
-                instructorTemp.remove(instructorTempInt);
-                roomTemp.remove(roomTempInt);
+                courseOfferings.add(tempCourseOffering);//adds the course to
+                instructorTemp.remove(instructorTempInt);//removes instructor from ArrayList since they have been taken (for this period)
+                roomTemp.remove(roomTempInt);//removes room from roomTemp ArrayList since it has been taken (for this period)
             }
         }
         for (int i = 0; i < courseOfferings.size(); i++) {
