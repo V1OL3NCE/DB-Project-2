@@ -1,30 +1,38 @@
+
+
 public class Assignment {
     private String assignmentName = "";
     private int assignmentID;
     public static int ID = 1;
     private int offeringID;
-    private int assignmentTypeID;
+    private int assignmentType;
 
-    public Assignment( int offeringID, String Name, int assignmentTypeID) {
+
+
+
+    public Assignment( CourseOffering courseOffering, String Name, AssignmentType assignmentType) {
         assignmentID = ID;
         ID++;
-        this.offeringID = offeringID;
+        offeringID = courseOffering.getOfferingID();
         assignmentName = Name;
-        this.assignmentTypeID = assignmentTypeID;
+        this.assignmentType = assignmentType.getAssignmentTypeID();
     }
 
     public int getAssignmentID() {
         return assignmentID;
     }
 
-    public int getAssignmentTypeID() {
-        return assignmentTypeID;
-    }
 
+    public int getOfferingID() {
+        return offeringID;
+    }
 
 
     @Override
     public String toString(){
-        return "INSERT INTO ASSIGNMENT (assignmentID, offeringID, assignmentName, assignmentTypeID) VALUES (" + assignmentID + ", " + offeringID + ", '" + assignmentName + "', " + assignmentTypeID + ")";
+        return "INSERT INTO ASSIGNMENT (assignmentID, offeringID, assignmentName, assignmentTypeID) VALUES (" + assignmentID + ", " + offeringID + ", '" + assignmentName + "', " + assignmentType + ")";
     }
 }
+
+
+
