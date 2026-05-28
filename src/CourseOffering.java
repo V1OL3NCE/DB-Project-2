@@ -16,6 +16,9 @@ public class CourseOffering {
         this.period = period;
     }
 
+    public int getOfferingID() {
+        return offeringID;
+    }
 
     public int getCourseID() {
         return courseID;

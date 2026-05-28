@@ -1,137 +1,43 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 
 public class Main {
     public static void main(String[] args) {
 
 
-        //departments gen - start ----------------------------------------------
         ArrayList<Department> departments = new ArrayList<>();
-        File departmentNamesFile = new File("src/departmentNames.txt");
-        try {
-            Scanner departmentFileScan = new Scanner(departmentNamesFile);
-            while (departmentFileScan.hasNext()) {
-                String departmentName = departmentFileScan.nextLine();
-                Department tempDepartment = new Department(departmentName);
-                departments.add(tempDepartment);
-                System.out.println(tempDepartment.toString());
-            }
-            departmentFileScan.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Error reading file: " + e.getMessage());
-        }
-        //departments gen - end ------------------------------------------------
+        Department.generateDepartments(departments);
 
 
-        //Instructors - start -------------------------------------------------------------------------------------------
         ArrayList<Instructor> instructors = new ArrayList<>();
-        File instructorNamesFile = new File("src/instructor.txt");
-        try {
-            Scanner instructorFileScan = new Scanner(instructorNamesFile);
-            while (instructorFileScan.hasNext()){
-                String instructorName = instructorFileScan.nextLine();
-                Instructor tempInstructor = new Instructor(instructorName, departments.get((int) (Math.random() * 10) )); // random is to assign a random department to the instructor
-                instructors.add(tempInstructor);
-                System.out.println(tempInstructor.toString());
-            }
-            instructorFileScan.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("Error reading file: " + e.getMessage());
-        }
-        //Instructors - end ---------------------------------------------------------------------------------------------
+        Instructor.generateInstructors(departments, instructors);
 
 
-        //Students - start ---------------------------------------------
         ArrayList<Student> students = new ArrayList<>();
-        File studentNamesFile = new File("src/students.txt");
-        try {
-            Scanner studentFileScan = new Scanner(studentNamesFile);
-            while (studentFileScan.hasNext()) {
-                String studentName = studentFileScan.nextLine();
-                Student tempStudent = new Student(studentName);
-                students.add(tempStudent);
-                System.out.println(tempStudent.toString());
-            }
-            studentFileScan.close();
-        }catch (FileNotFoundException e) {
-            System.out.println("error reading file: " + e.getMessage());
-        }
-        //Students - end -----------------------------------------------
+        Student.generateStudents(students);
 
 
         //Room gen - start ---------------------------------------------------------------------------------------------
-        ArrayList<String> roomNames = new ArrayList<>();
-        String floor = "";
-        String side = "";
-        for (int f = 0; f < 9; f++) {
-            if (f == 0) {
-                floor = "B";
-            } else {
-                floor = f + "";
-            }
-            for (int s = 1; s < 5; s++) {
-                switch (s) {
-                    case 1:
-                        side = "N";
-                        for (int n = 1; n < 21; n++) {
-                            String rooms = "";
-                            rooms = floor + side + n;
-                            roomNames.add(rooms);
-                        }
-                        break;
-                    case 2:
-                        side = "E";
-                        for (int n = 1; n < 21; n++) {
-                            String rooms = "";
-                            rooms = floor + side + n;
-                            roomNames.add(rooms);
-                        }
-                        break;
-                    case 3:
-                        side = "S";
-                        for (int n = 1; n < 21; n++) {
-                            String rooms = "";
-                            rooms = floor + side + n;
-                            roomNames.add(rooms);
-                        }
-                        break;
-                    case 4:
-                        side = "W";
-                        for (int n = 1; n < 21; n++) {
-                            String rooms = "";
-                            rooms = floor + side + n;
-                            roomNames.add(rooms);
-                        }
-                        break;
-                }
-            }
-        }
+        ArrayList<String> rooms = new ArrayList<>();
+        Room.generateRooms(rooms);
         ArrayList<Room> roomObjects = new ArrayList<>();
-        for (int i = 0; i < roomNames.size(); i++) {
-            Room tmp = new Room(roomNames.get(i));
+        for (int i = 0; i < rooms.size(); i++) {
+            Room tmp = new Room(rooms.get(i));
             roomObjects.add(tmp);
             System.out.println(tmp.toString());
         }
         //Room gen - end -----------------------------------------------------------------------------------------------
 
-
+/*
 
         //AssignmentType gen - start ---------------------------------
         ArrayList<AssignmentType> assignmentTypes = new ArrayList<>();
-        assignmentTypes.add(new AssignmentType("Major"));
-        assignmentTypes.add(new AssignmentType("Minor"));
+        assignmentTypes.add(new AssignmentType("Major"));//MAJOR IS ID OF 0
+        assignmentTypes.add(new AssignmentType("Minor"));//MINOR IS ID OF 1
         for (AssignmentType assignmentType : assignmentTypes) {
             System.out.println(assignmentType);
         }
         //AssignmentType gen - end -----------------------------------
-
-
-
-
 
 
         //CourseType gen - start --------------------------------------------------------------------
@@ -143,7 +49,7 @@ public class Main {
 
         //Course gen -start ---------------------------------------------------
         ArrayList<Course> courses = new ArrayList<>();
-        File coursesFile = new File("src/course.txt");
+        File coursesFile = new File("src/courses.txt");
         try {
             Scanner fileScan = new Scanner(coursesFile);
             while (fileScan.hasNext()) {
@@ -172,35 +78,85 @@ public class Main {
         //Course gen - end --------------------------------------------------
 
         //CourseOffering gen -start
-        ArrayList<CourseOffering> courseOfferings = new ArrayList<>();
-        List<List<Course>> coursesSortByPeriod = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            coursesSortByPeriod.add(new ArrayList<>());
+        List<List<CourseOffering>> offeringsByPeriod = new ArrayList<>();
+        List<List<Course>> coursesByPeriod = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {//makes a new ArrayList for each period
+            coursesByPeriod.add(new ArrayList<>());
+            offeringsByPeriod.add(new ArrayList<>());
         }
-
-        // Fills up the coursesSortByPeriod ArrayList with random courses
         for (int i = 0; i < courses.size(); i++) {
             for (int j = 0; j < 5; j++) {
                 int loopTemp = (int) (Math.random() * 10 + 1);
-                coursesSortByPeriod.get(loopTemp - 1).add(courses.get(i));
+                coursesByPeriod.get(loopTemp - 1).add(courses.get(i));
             }
         }
         for (int i = 0; i < 10; i++) {
-            ArrayList<Instructor> instructorTemp = new ArrayList<>(instructors);//ArrayList of all the instructors (modified later to be the remaining instructors for this period)
-            ArrayList<Room> roomTemp = new ArrayList<>(roomObjects);//ArrayList of all rooms (modified later to be the remaining available rooms for this period)
-            for (int j = 0; j < coursesSortByPeriod.get(i).size(); j++) {
-                int instructorTempInt = (int) ((Math.random() * instructorTemp.size())); // gets the ID of a random instructor
-                int roomTempInt = (int) ((Math.random() * roomTemp.size())); // gets the ID of a random room
-                CourseOffering tempCourseOffering = new CourseOffering(instructorTemp.get(instructorTempInt), coursesSortByPeriod.get(i).get(j), roomTemp.get(roomTempInt), i + 1);
-                courseOfferings.add(tempCourseOffering);//adds the course to
-                instructorTemp.remove(instructorTempInt);//removes instructor from ArrayList since they have been taken (for this period)
-                roomTemp.remove(roomTempInt);//removes room from roomTemp ArrayList since it has been taken (for this period)
+            ArrayList<Instructor> instructorTemp = new ArrayList<>(instructors);
+            ArrayList<Room> roomTemp = new ArrayList<>(roomObjects);
+            for (int j = 0; j < coursesByPeriod.get(i).size(); j++) {
+                int iTempInt = (int) ((Math.random() * instructorTemp.size()));//random instructor
+                int rTempInt = (int) ((Math.random() * roomTemp.size()));//random room
+                CourseOffering tempOffering = new CourseOffering(instructorTemp.get(iTempInt), coursesByPeriod.get(i).get(j), roomTemp.get(rTempInt), i + 1);
+                offeringsByPeriod.get(i).add(tempOffering);
+                instructorTemp.remove(iTempInt);//remove instructor from arraylist for this period
+                roomTemp.remove(rTempInt);//remove room from arraylist for this period
+                System.out.println(tempOffering.toString());
             }
         }
-        for (int i = 0; i < courseOfferings.size(); i++) {
-            System.out.println(courseOfferings.get(i).toString());
-        }
         //-end
+
+
+
+        List<List<Roster>> rosterListSortByStudent = new ArrayList<>();
+        for (int i = 0; i < students.size(); i++) {
+            rosterListSortByStudent.add(new ArrayList<>());
+            for (int j = 0; j < 10; j++) {
+                int random = (int) (Math.random() * offeringsByPeriod.get(j).size());
+                Roster rosterTemp = new Roster(offeringsByPeriod.get(j).get(random), students.get(i));
+                System.out.println(rosterTemp.toString());
+                rosterListSortByStudent.get(i).add(rosterTemp);
+            }
+        }
+
+
+        //Assignment gen - start ------------------------------------------------------
+
+
+        ArrayList<Assignment> assignments = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {//period
+            for (int j = 0; j < offeringsByPeriod.get(i).size(); j++) {//size of period
+                //make 15 assignments for that offering
+                for (int k = 1; k <= 5; k++) {
+                    assignments.add(new Assignment(offeringsByPeriod.get(i).get(j).getCourseID(), "Test " + k, assignmentTypes.get(0).getAssignmentTypeID()));
+                }
+                for (int k = 1; k <= 5; k++) {
+                    assignments.add(new Assignment(offeringsByPeriod.get(i).get(j).getCourseID(), "Quiz " + k,assignmentTypes.get(0).getAssignmentTypeID()));
+                }
+                for (int k = 1; k <= 5; k++) {
+                    assignments.add(new Assignment(offeringsByPeriod.get(i).get(j).getCourseID(), "HW " + k,assignmentTypes.get(1).getAssignmentTypeID()));
+                }
+            }
+        }
+        for (Assignment a: assignments) {
+            System.out.println(a);
+        }
+
+
+
+        //Assignment gen - end --------------------------------------------------------
+
+
+        for (int i = 0; i < rosterListSortByStudent.size(); i++) {
+            for (int j = 0; j < rosterListSortByStudent.get(i).size(); j++) {
+                int temp = rosterListSortByStudent.get(i).get(j).getCourseOfferingID();
+                for (int k = (15*(temp-1)); k <= (15*temp)-1; k++) {
+                    int gradeRandom = (int) (Math.random() * 25) + 75;
+                    Grades grade = new Grades(students.get(i),assignments.get(k),gradeRandom);
+                    System.out.println(grade.toString());
+                }
+            }
+        }
+        */
 
     }
 }

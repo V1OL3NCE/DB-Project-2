@@ -9,11 +9,11 @@ public class AssignmentType {
         ID++;
     }
 
-    public int getAssignment_Type_ID() {
+    public int getAssignmentTypeID() {
         return assignmentTypeID;
     }
 
-    public String getAssignment_Type_Name() {
+    public String getAssignmentTypeName() {
         return assignmentTypeName;
     }
 
