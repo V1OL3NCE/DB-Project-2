@@ -16,28 +16,12 @@ public class Main {
         ArrayList<Student> students = new ArrayList<>();
         Student.generateStudents(students);
 
-
-        //Room gen - start ---------------------------------------------------------------------------------------------
         ArrayList<String> rooms = new ArrayList<>();
         Room.generateRooms(rooms);
-        ArrayList<Room> roomObjects = new ArrayList<>();
-        for (int i = 0; i < rooms.size(); i++) {
-            Room tmp = new Room(rooms.get(i));
-            roomObjects.add(tmp);
-            System.out.println(tmp.toString());
-        }
-        //Room gen - end -----------------------------------------------------------------------------------------------
 
-/*
 
-        //AssignmentType gen - start ---------------------------------
         ArrayList<AssignmentType> assignmentTypes = new ArrayList<>();
-        assignmentTypes.add(new AssignmentType("Major"));//MAJOR IS ID OF 0
-        assignmentTypes.add(new AssignmentType("Minor"));//MINOR IS ID OF 1
-        for (AssignmentType assignmentType : assignmentTypes) {
-            System.out.println(assignmentType);
-        }
-        //AssignmentType gen - end -----------------------------------
+        AssignmentType.generateAssignmentTypes(assignmentTypes);
 
 
         //CourseType gen - start --------------------------------------------------------------------
@@ -47,6 +31,7 @@ public class Main {
         System.out.println(AP.toString() + "\n" + regents.toString() + "\n" + elective.toString());
         //CourseType - end --------------------------------------------------------------------------
 
+/*
         //Course gen -start ---------------------------------------------------
         ArrayList<Course> courses = new ArrayList<>();
         File coursesFile = new File("src/courses.txt");

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class AssignmentType {
     private int assignmentTypeID;
     private static int ID = 0;
@@ -20,5 +22,13 @@ public class AssignmentType {
     @Override
     public String toString(){
         return "INSERT INTO Assignment_Type (Assignment_Type_ID, Assignment_Type_Name ) VALUES (" + assignmentTypeID + ", '" + assignmentTypeName + "')";
+    }
+
+    public static void generateAssignmentTypes(ArrayList<AssignmentType> assignmentTypes) {
+        assignmentTypes.add(new AssignmentType("Major"));//MAJOR IS ID OF 0
+        assignmentTypes.add(new AssignmentType("Minor"));//MINOR IS ID OF 1
+        for (AssignmentType assignmentType : assignmentTypes) {
+            System.out.println(assignmentType);
+        }
     }
 }

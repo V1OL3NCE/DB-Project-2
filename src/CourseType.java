@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class CourseType {
-    private static ArrayList<CourseType> courseTypeArr = new ArrayList<>();
     private int courseTypeID;
     private String courseTypeName;
     private static int ID = 0;

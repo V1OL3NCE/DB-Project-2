@@ -24,7 +24,7 @@ public class Room {
         return "INSERT INTO ROOM (roomID , Name) VALUES (" + roomID + ", '" + roomName + "');";
     }
 
-    public static void generateRooms(ArrayList<String> rooms) {
+    public static void generateRoomNames(ArrayList<String> rooms) {
         String floor = "";
         String side = "";
         for (int f = 0; f < 9; f++) {
@@ -61,6 +61,16 @@ public class Room {
                         break;
                 }
             }
+        }
+    }
+
+    public static void generateRooms(ArrayList<String> rooms) {
+        Room.generateRoomNames(rooms);
+        ArrayList<Room> roomObjects = new ArrayList<>();
+        for (int i = 0; i < rooms.size(); i++) {
+            Room tmp = new Room(rooms.get(i));
+            roomObjects.add(tmp);
+            System.out.println(tmp.toString());
         }
     }
 }
