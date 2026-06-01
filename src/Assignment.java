@@ -30,7 +30,7 @@ public class Assignment {
 
     @Override
     public String toString(){
-        return "INSERT INTO Assignment (assignment_ID, offering_ID, assignment_Name, assignment_Type_ID) VALUES (" + assignmentID + ", " + offeringID + ", '" + assignmentName + "', " + assignmentType + ");";
+        return "INSERT INTO Assignment (assignmentID, offeringID, assignmentName, assignmentTypeID) VALUES (" + assignmentID + ", " + offeringID + ", '" + assignmentName + "', " + assignmentType + ");";
     }
 
 

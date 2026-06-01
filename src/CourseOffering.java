@@ -15,7 +15,7 @@ public class CourseOffering {
         offeringID = ID;
         ID++;
         InstructorID = i.getInstructorId();
-        CourseID = c.getCourse_ID();
+        CourseID = c.getCourseID();
         RoomID = r.getRoomID();
         this.period = period;
     }
@@ -28,7 +28,7 @@ public class CourseOffering {
 
     @Override
     public String toString(){
-        return "INSERT INTO Course_Offering (Offering_ID, Period, Instructor_ID, Course_ID, Room_ID) VALUES (" + offeringID + ", " + period + ", " + InstructorID + ", " + CourseID + ", " + RoomID + ");";
+        return "INSERT INTO CourseOffering (OfferingID, Period, InstructorID, CourseID, RoomID) VALUES (" + offeringID + ", " + period + ", " + InstructorID + ", " + CourseID + ", " + RoomID + ");";
     }
 
 

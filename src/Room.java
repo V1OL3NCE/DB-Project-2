@@ -21,7 +21,7 @@ public class Room {
 
     @Override
     public String toString(){
-        return "INSERT INTO Room (room_ID , Name) VALUES (" + roomID + ", '" + roomName + "');";
+        return "INSERT INTO Room (roomID , Name) VALUES (" + roomID + ", '" + roomName + "');";
     }
 
 

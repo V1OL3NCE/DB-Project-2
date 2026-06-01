@@ -19,7 +19,7 @@ public class Course {
     }
 
 
-    public int getCourse_ID() {
+    public int getCourseID() {
         return courseID;
     }
 
@@ -27,7 +27,7 @@ public class Course {
 
     @Override
     public String toString(){
-        return "INSERT INTO Course (Course_ID , CourseType_ID, Course_Name) VALUES (" + courseID + ", " + CourseType + ",'" + name + "');";
+        return "INSERT INTO Course (CourseID , CourseTypeID, CourseName) VALUES (" + courseID + ", " + CourseType + ",'" + name + "');";
     }
 
 

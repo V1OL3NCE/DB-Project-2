@@ -17,7 +17,7 @@ public class Grade {
 
     @Override
     public String toString(){
-        return "INSERT INTO Grade (Assignment_ID, student_ID , Grade) VALUES ( " + assignmentID + ", " + studentID + ", " + grade + ");";
+        return "INSERT INTO Grade (AssignmentID, studentID , Grade) VALUES ( " + assignmentID + ", " + studentID + ", " + grade + ");";
     }
 
 

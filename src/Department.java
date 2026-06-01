@@ -6,12 +6,12 @@ import java.util.Scanner;
 
 public class Department {
     private int departmentID;
-    private String Department_Name;
+    private String DepartmentName;
     private static int ID = 1;
 
 
     public Department(String Name) {
-        this.Department_Name = Name;
+        this.DepartmentName = Name;
         departmentID = ID;
         ID++;
     }
@@ -22,7 +22,7 @@ public class Department {
 
     @Override
     public String toString(){
-        return "INSERT INTO Department (Department_ID , Department_Name) VALUES (" + departmentID + ", '" + Department_Name + "');";
+        return "INSERT INTO Department (DepartmentID , DepartmentName) VALUES (" + departmentID + ", '" + DepartmentName + "');";
     }
 
 
