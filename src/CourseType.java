@@ -21,7 +21,7 @@ public class CourseType {
 
     @Override
     public String toString(){
-        return "INSERT INTO Course_Type (Course_Type_ID , Course_Type_Name) VALUES (" + courseTypeID  + ", '" + courseTypeName+ "')";
+        return "INSERT INTO Course_Type (Course_Type_ID , Course_Type_Name) VALUES (" + courseTypeID  + ", '" + courseTypeName+ "');";
     }
 
 

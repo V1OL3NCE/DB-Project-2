@@ -22,7 +22,7 @@ public class Department {
 
     @Override
     public String toString(){
-        return "INSERT INTO Departments (Department_ID , Department_Name) VALUES (" + departmentID + ", '" + Department_Name + "')";
+        return "INSERT INTO Departments (Department_ID , Department_Name) VALUES (" + departmentID + ", '" + Department_Name + "');";
     }
 
 

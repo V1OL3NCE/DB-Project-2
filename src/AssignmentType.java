@@ -21,7 +21,7 @@ public class AssignmentType {
 
     @Override
     public String toString(){
-        return "INSERT INTO Assignment_Type (Assignment_Type_ID, Assignment_Type_Name ) VALUES (" + assignmentTypeID + ", '" + assignmentTypeName + "')";
+        return "INSERT INTO Assignment_Type (Assignment_Type_ID, Assignment_Type_Name ) VALUES (" + assignmentTypeID + ", '" + assignmentTypeName + "');";
     }
 
 

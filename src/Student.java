@@ -29,7 +29,7 @@ public class Student {
 
     @Override
     public String toString(){
-        return "INSERT INTO STUDENT (Student_ID , Name) VALUES (" + studentId + ", '" + studentName + "')";
+        return "INSERT INTO STUDENT (Student_ID , Name) VALUES (" + studentId + ", '" + studentName + "');";
     }
 
 
