@@ -15,7 +15,7 @@ public class CourseOffering {
         offeringID = ID;
         ID++;
         InstructorID = i.getInstructorId();
-        CourseID = c.getCourse_Id();
+        CourseID = c.getCourse_ID();
         RoomID = r.getRoomID();
         this.period = period;
     }

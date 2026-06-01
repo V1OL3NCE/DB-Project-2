@@ -3,24 +3,24 @@ import java.util.List;
 
 
 public class Roster{
-    private int courseOfferingId;
-    private int studentId;
+    private int courseOfferingID;
+    private int studentID;
 
 
     public Roster(CourseOffering courseOffering, Student student){
-        courseOfferingId = courseOffering.getOfferingID();
-        studentId = student.getStudentId();
+        courseOfferingID = courseOffering.getOfferingID();
+        studentID = student.getStudentID();
     }
 
 
-    public int getCourseOfferingId() {
-        return courseOfferingId;
+    public int getCourseOfferingID() {
+        return courseOfferingID;
     }
 
 
     @Override
     public String toString(){
-        return "INSERT INTO ROSTER (StudentID , OfferingID) VALUES (" + studentId + ", " + courseOfferingId + ");";
+        return "INSERT INTO ROSTER (StudentID , OfferingID) VALUES (" + studentID + ", " + courseOfferingID + ");";
     }
 
 

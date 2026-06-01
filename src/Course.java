@@ -6,28 +6,28 @@ import java.util.Scanner;
 
 public class Course {
     private String name;
-    private int courseId;
+    private int courseID;
     private int CourseType;
     private static int ID = 1;
 
 
     public Course(String name, CourseType courseType){
         this.name = name;
-        courseId = ID;
+        courseID = ID;
         ID++;
         CourseType = courseType.getCourseTypeID();
     }
 
 
-    public int getCourse_Id() {
-        return courseId;
+    public int getCourse_ID() {
+        return courseID;
     }
 
 
 
     @Override
     public String toString(){
-        return "INSERT INTO Course (Course_ID , CourseType_ID, CourseName) VALUES (" + courseId + ", " + CourseType + ",'" + name + "');";
+        return "INSERT INTO Course (Course_ID , CourseType_ID, CourseName) VALUES (" + courseID + ", " + CourseType + ",'" + name + "');";
     }
 
 

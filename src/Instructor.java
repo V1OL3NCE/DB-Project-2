@@ -26,7 +26,7 @@ public class Instructor {
 
     @Override
     public String toString(){
-        return "INSERT INTO Instructor (Instructor_ID, Instructor_Name, Department_ID ) VALUES (" + instructorID + ", '" + name + ", '" + departmentID + "');";
+        return "INSERT INTO Instructor (Instructor_ID, Instructor_Name, Department_ID ) VALUES (" + instructorID + ", '" + name + ", " + departmentID + ");";
     }
 
 

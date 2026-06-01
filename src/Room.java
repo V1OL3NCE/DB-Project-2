@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 
 public class Room {
-    private int roomID = 0;
+    private int roomID;
     private static int ID = 1;
     private final String roomName;
 

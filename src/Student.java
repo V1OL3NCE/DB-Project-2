@@ -6,19 +6,19 @@ import java.util.Scanner;
 
 public class Student {
     private String studentName;
-    private int studentId;
+    private int studentID;
     private static int ID = 1;
 
 
     public Student(String Name){
         this.studentName = Name;
-        studentId = ID;
+        studentID = ID;
         ID++;
     }
 
 
-    public int getStudentId(){
-        return studentId;
+    public int getStudentID(){
+        return studentID;
     }
 
 
@@ -29,7 +29,7 @@ public class Student {
 
     @Override
     public String toString(){
-        return "INSERT INTO STUDENT (Student_ID , Name) VALUES (" + studentId + ", '" + studentName + "');";
+        return "INSERT INTO STUDENT (Student_ID , Name) VALUES (" + studentID + ", '" + studentName + "');";
     }
 
 
