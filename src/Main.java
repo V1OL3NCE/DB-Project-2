@@ -37,9 +37,6 @@ public class Main {
         List<List<Roster>> rosterListSortByStudent = new ArrayList<>();
         Roster.generateRoster(students,rosterListSortByStudent,courseOfferingsSortByPeriod);
 
-
-
-
         ArrayList<AssignmentType> assignmentTypes = new ArrayList<>();
         AssignmentType.generateAssignmentType(assignmentTypes);
 
@@ -48,7 +45,7 @@ public class Main {
         Assignment.generateAssignments(assignments,courseOfferingsSortByPeriod,assignmentTypes);
 
 
-        Grades.generateGrades(students,assignments,rosterListSortByStudent);
+        Grade.generateGrades(students,assignments,rosterListSortByStudent);
 
 
     }

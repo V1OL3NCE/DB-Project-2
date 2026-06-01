@@ -2,13 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Grades {
+public class Grade {
     private int studentID;
     private int assignmentID;
     private int grade;
 
 
-    public Grades(Student student,Assignment assignment,int grade){
+    public Grade(Student student, Assignment assignment, int grade){
         studentID = student.getStudentID();
         assignmentID = assignment.getAssignmentID();
         this.grade = grade;
@@ -27,7 +27,7 @@ public class Grades {
                 int temp = rosterListSortByStudent.get(i).get(j).getCourseOfferingID();
                 for (int k = (15*(temp-1)); k <= (15*temp)-1; k++) {
                     int gradeRandom = (int) (Math.random() * 25) + 75;
-                    Grades grade = new Grades(students.get(i),assignments.get(k),gradeRandom);
+                    Grade grade = new Grade(students.get(i),assignments.get(k),gradeRandom);
                     System.out.println(grade.toString());
                 }
             }
