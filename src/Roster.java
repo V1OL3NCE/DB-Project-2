@@ -20,7 +20,7 @@ public class Roster{
 
     @Override
     public String toString(){
-        return "INSERT INTO Roster (StudentID , OfferingID) VALUES (" + studentID + ", " + courseOfferingID + ");";
+        return "INSERT INTO Roster (Student_ID , Offering_ID) VALUES (" + studentID + ", " + courseOfferingID + ");";
     }
 
 
