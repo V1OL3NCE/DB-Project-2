@@ -13,7 +13,7 @@ public class Main {
                 "\n" +
                 "CREATE TABLE Room (\n" +
                 "    RoomID int PRIMARY KEY,\n" +
-                "    RoomName varchar(255)\n" +
+                "    Name varchar(255)\n" +
                 ");\n" +
                 "\n" +
                 "CREATE TABLE Student (\n" +
