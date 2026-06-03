@@ -32,7 +32,7 @@ public class Course {
 
 
     public static void generateCourses(ArrayList<Course> courses,ArrayList<CourseType> courseTypes){
-        File courseFile = new File("src/Courses.txt");
+        File courseFile = new File("/home/justinz121/Projects/DB-Project-2-master/src/Courses.txt");
         try {
             Scanner fileScan = new Scanner(courseFile);
             while (fileScan.hasNext()) {

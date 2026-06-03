@@ -34,7 +34,7 @@ public class Student {
 
 
     public static void generateStudents(ArrayList<Student> students) {
-        File studentFile = new File("src/Students.txt");
+        File studentFile = new File("/home/justinz121/Projects/DB-Project-2-master/src/Students.txt");
         try {
             Scanner fileScan = new Scanner(studentFile);
             while (fileScan.hasNext()){

@@ -28,7 +28,7 @@ public class Department {
 
     public static void generateDepartments(ArrayList<Department> departments) {
         String[] sep;
-        File file = new File("src/DepartmentNames.txt");
+        File file = new File("/home/justinz121/Projects/DB-Project-2-master/src/DepartmentNames.txt");
         try {
             Scanner fileScan = new Scanner(file);
 

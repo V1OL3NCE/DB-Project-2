@@ -31,7 +31,7 @@ public class Instructor {
 
 
     public static void generateInstructors(ArrayList<Department> departments, ArrayList<Instructor> instructors) {
-        File instructorFile = new File("src/Instructors.txt");
+        File instructorFile = new File("/home/justinz121/Projects/DB-Project-2-master/src/Instructors.txt");
         try {
             Scanner fileScan = new Scanner(instructorFile);
             while (fileScan.hasNext()) {
