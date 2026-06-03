@@ -34,7 +34,7 @@ public class Main {
                 "CREATE TABLE Instructor (\n" +
                 "    InstructorID int PRIMARY KEY,\n" +
                 "    DepartmentID int,\n" +
-                "    Name varchar(255),\n" +
+                "    InstructorName varchar(255),\n" +
                 "    FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID)\n" +
                 ");\n" +
                 "\n" +
