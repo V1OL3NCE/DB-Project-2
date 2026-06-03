@@ -37,6 +37,7 @@ public class Course {
             Scanner fileScan = new Scanner(courseFile);
             while (fileScan.hasNext()) {
                 String t = fileScan.nextLine();
+                t = t.replace("'", "''");
                 if (t.equals("REGENTS")) break;
                 Course tmp = new Course(t, courseTypes.get(0));
                 courses.add(tmp);
@@ -44,6 +45,7 @@ public class Course {
             }
             while (fileScan.hasNext()) {
                 String t = fileScan.nextLine();
+                t = t.replace("'", "''");
                 if (t.equals("ELECTIVES")) break;
                 Course tmp = new Course(t, courseTypes.get(1));
                 courses.add(tmp);
@@ -51,6 +53,7 @@ public class Course {
             }
             while (fileScan.hasNext()) {
                 String t = fileScan.nextLine();
+                t = t.replace("'", "''");
                 Course tmp = new Course(t, courseTypes.get(2));
                 courses.add(tmp);
                 System.out.println(tmp.toString());

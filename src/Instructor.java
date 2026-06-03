@@ -37,6 +37,7 @@ public class Instructor {
             while (fileScan.hasNext()) {
                 String t;
                 t = fileScan.nextLine();
+                t = t.replace("'", "''");
                 Instructor tmp = new Instructor(t, departments.get((int) (Math.random() * 10)));
                 instructors.add(tmp);
                 System.out.println(tmp.toString());
